@@ -99,8 +99,8 @@ export const mockDataProvider = fakeDataProvider(
   true
 )
 
-console.log(users)
-console.log(comments)
-console.log(lines)
+// console.log(users)
+// console.log(comments)
+// console.log(lines)
 
 // Comment

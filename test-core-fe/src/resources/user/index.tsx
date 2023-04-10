@@ -92,13 +92,7 @@ export class User {
 
 
 const EditToolbar = () => {
-  // const notify = useNotify();
   const formContext = useFormContext();
-  // console.log("formContext EDIT = ", formContext)
-  // const formState = useFormState();
-  // console.log("formState = ", formState)
-
-  // const refresh = useRefresh();
   return (
       <Toolbar>
           <SaveButton
@@ -107,14 +101,7 @@ const EditToolbar = () => {
               variant="text"
               mutationOptions={{
                   onSuccess: () => {
-                      //formContext?.reset();
                       window.scrollTo(0, 0);
-                      // notify("changes saved")
-                      // refresh();
-                      // notify('ra.notification.created', {
-                      //     type: 'info',
-                      //     messageArgs: { smart_count: 1 },
-                      // });
                   },
               }}
           />
