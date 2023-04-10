@@ -61,11 +61,6 @@ export const ChangesTable = ({changesDisplayed}: {changesDisplayed: number}) => 
 }
 
 export const VersionsTable: React.FC<{ tableProps?: any, changesDisplayed?: number }> = ({ tableProps, changesDisplayed= 3 }) => {
-  const rowStyle = (record, index) => ({
-    // backgroundColor: record.changes >= 5 ? '#efe' : 'white',
-    // height: 2, // Set the row height to 50 pixels
-    // width: 5
-  });
 
   return (
     <List
@@ -73,7 +68,7 @@ export const VersionsTable: React.FC<{ tableProps?: any, changesDisplayed?: numb
       filters={versionFilters}
       {...tableProps}
     >
-      <Datagrid rowClick="show" rowStyle={rowStyle}>
+      <Datagrid rowClick="show">
         <PolymorphicReferenceField source="actor" />
         <PolymorphicReferenceField source="resource" />
         <WrapperField label="Changes" >

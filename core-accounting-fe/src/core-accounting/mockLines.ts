@@ -37,7 +37,7 @@ export async function mockLines({ count = 8, dEntryTransferTypes = defaultDEntry
           },
         },
         code: transfer.code,
-        partner_id: faker.datatype.uuid(), //
+        partner_id: faker.datatype.uuid(),
         partner_account: transfer.debit_account,
 
         // detailId: faker.datatype.uuid(),
@@ -50,8 +50,7 @@ export async function mockLines({ count = 8, dEntryTransferTypes = defaultDEntry
       const line2 = { //line 2 (FLIP)
         id: line1.partner_id,
         account: transfer.debit_account,
-        // amount: (-1 * line1.amount)?
-        // balance: faker.commerce.price(1, 10000, 0),
+      
         amount: {
           amount: amount * -1,
           formatted_amount: `-${formatted_amount}`, // *-1?
