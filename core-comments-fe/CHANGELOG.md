@@ -1,5 +1,13 @@
 # @moonlight-labs/core-comments-fe
 
+## 0.1.14
+
+### Patch Changes
+
+- Fixes and Lint
+- Updated dependencies
+  - @moonlight-labs/core-base-fe@0.1.16
+
 ## 0.1.9
 
 ### Patch Changes

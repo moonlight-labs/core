@@ -11,7 +11,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --format visualstudio",
     "format": "npx prettier -w **/*.{tsx,ts,json}",
     "pre-publish": "pnpm publish -r --dry-run --no-git-checks",
-    "publish": "pnpm changeset publish",
+    "publish-all": "pnpm changeset publish",
     "beta:docs": "npx @microsoft/api-documenter markdown -i core-base-fe/docs -o docs/docs/api/"
   },
   "keywords": [],
