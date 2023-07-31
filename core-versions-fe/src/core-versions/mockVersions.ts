@@ -1,11 +1,11 @@
 import { faker } from '@moonlight-labs/core-base-fe'
 
-export async function mockVersions({ count = 15 }): Promise<any> {
+export const mockVersions = ({ count = 15 }) => {
     const mockData = []
     for (let i = 0; count > i; i++) {
       mockData.push({
         // additional attributes
-        changes: await generateChanges(faker.number.int({ min: 1, max: 5 })),
+        changes: generateChanges(faker.number.int({ min: 1, max: 5 })),
         timestamp: faker.date.past().toLocaleString(),
         // standard attributes
         id: faker.string.uuid(),
@@ -17,8 +17,7 @@ export async function mockVersions({ count = 15 }): Promise<any> {
 }
 
 
-async function generateChanges(numChanges: number): Promise<any> {
-
+const generateChanges = (numChanges: number) => {
 
     const changeTypes: {[index: string]:Function} = {
       "string": () => faker.lorem.words(),

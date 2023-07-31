@@ -1,4 +1,5 @@
 import fakeDataProvider from 'ra-data-fakerest'
+// import { faker } from '@faker-js/faker'
 import { faker } from '@moonlight-labs/core-base-fe'
 import { AuthProvider } from 'react-admin'
 
@@ -6,7 +7,7 @@ import { mockJobs, mockLockers } from '@moonlight-labs/core-jobs-fe'
 import { mockComments } from '@moonlight-labs/core-comments-fe'
 import { mockLines } from '@moonlight-labs/core-accounting-fe'
 import { mockVersions } from '@moonlight-labs/core-versions-fe'
-import { mockWebhooks } from '@moonlight-labs/core-webhooks-fe'
+// import { mockWebhooks } from '@moonlight-labs/core-webhooks-fe'
 
 import { mockUsers } from './mockUsers'
 import { mockCompanies } from './mockCompanies'
@@ -38,7 +39,7 @@ const comments = mockComments(50).map((comment) => {
   }
 })
 
-const versions = (await mockVersions({ count: 40 })).map((version: any) => {
+const versions = mockVersions({ count: 40 }).map((version: any) => {
   const user = faker.helpers.arrayElement(users)
   const resource = faker.helpers.arrayElement([
     faker.helpers.arrayElement(users),
@@ -74,7 +75,7 @@ const dEntryTransferTypes = [
   },
 ]
 
-const lines = (await mockLines({ count: 10, dEntryTransferTypes })).map(
+const lines = mockLines({ count: 10, dEntryTransferTypes }).map(
   (line: any, idx: number) => {
     let scope, partner_scope
 
@@ -105,10 +106,10 @@ const data = {
   Comment: comments,
   Line: lines,
   Version: versions,
-  Webhook: mockWebhooks,
+  // Webhook: mockWebhooks,
 
-  jobs: await mockJobs(15),
-  lockers: await mockLockers(3),
+  jobs: mockJobs(15),
+  lockers: mockLockers(3),
 
   // For Testing Integrations
   User: users,

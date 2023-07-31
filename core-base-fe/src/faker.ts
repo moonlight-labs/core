@@ -5,6 +5,7 @@ if (faker === undefined) {
       faker = _faker
     })
     .catch(() => {
-      //
+      console.warn('faker requested but could not load')
     })
 }
+

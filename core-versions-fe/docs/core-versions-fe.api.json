@@ -227,54 +227,27 @@
           "implementsTokenRanges": []
         },
         {
-          "kind": "Function",
-          "canonicalReference": "@moonlight-labs/core-versions-fe!mockVersions:function(1)",
+          "kind": "Variable",
+          "canonicalReference": "@moonlight-labs/core-versions-fe!mockVersions:var",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare function mockVersions({ count }: "
+              "text": "mockVersions: "
             },
             {
               "kind": "Content",
-              "text": "{\n    count?: number | undefined;\n}"
-            },
-            {
-              "kind": "Content",
-              "text": "): "
-            },
-            {
-              "kind": "Reference",
-              "text": "Promise",
-              "canonicalReference": "!Promise:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<any>"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
+              "text": "({ count }: {\n    count?: number | undefined;\n}) => {\n    changes: any[][];\n    timestamp: any;\n    id: any;\n    created_at: any;\n    updated_at: any;\n}[]"
             }
           ],
           "fileUrlPath": "dist/mockVersions.d.ts",
-          "returnTypeTokenRange": {
-            "startIndex": 3,
-            "endIndex": 5
-          },
+          "isReadonly": true,
           "releaseTag": "Public",
-          "overloadIndex": 1,
-          "parameters": [
-            {
-              "parameterName": "{ count }",
-              "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "isOptional": false
-            }
-          ],
-          "name": "mockVersions"
+          "name": "mockVersions",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
         }
       ]
     }

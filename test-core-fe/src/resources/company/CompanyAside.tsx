@@ -9,7 +9,7 @@ import { SimpleShowLayout, TextField } from 'react-admin'
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
-import { DateField as CoreDateField } from '@moonlight-labs/core-base-fe'
+import { DateField } from '@moonlight-labs/core-base-fe'
 import { Comments } from '@moonlight-labs/core-comments-fe'
 import { CoreVersions } from '@moonlight-labs/core-versions-fe'
 
@@ -46,8 +46,8 @@ export const CompanyAside = () => {
       <SimpleShowLayout sx={{ ...inlineLayout, m: 2, p: 0, marginBottom: 5 }}>
         <TextField source="id" />
         {/* <DateField source="created_at" label="created" />  // For comparison purposes */}
-        <CoreDateField source="created_at" label="created" />
-        <CoreDateField source="updated_at" label="updated" />
+        <DateField source="created_at" label="created" />
+        <DateField source="updated_at" label="updated" />
       </SimpleShowLayout>
     </Paper>
   )

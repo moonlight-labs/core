@@ -14,10 +14,10 @@ type MockLinesArgs = {
   }[]
 }
 
-export async function mockLines({
+export function mockLines({
   count = 8,
   dEntryTransferTypes = defaultDEntryTransferTypes,
-}: MockLinesArgs): Promise<any> {
+}: MockLinesArgs) {
 
     const lines = []
     for (let i = count; i--; ) {

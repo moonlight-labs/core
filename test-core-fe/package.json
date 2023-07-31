@@ -9,6 +9,9 @@
     "preview": "vite preview",
     "preinstall": "npx only-allow pnpm"
   },
+  "devDependencies": {
+    "@faker-js/faker": ">=8.0.0"
+  },
   "dependencies": {
     "@moonlight-labs/core-accounting-fe": "workspace:^",
     "@moonlight-labs/core-base-fe": "workspace:^",
