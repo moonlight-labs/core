@@ -1,8 +1,8 @@
 import { CustomButtonDrawer, DrawerWidth } from '@moonlight-labs/core-base-fe'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined'
-import { Box } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
+import { Box, MenuItem } from '@mui/material'
 import Menu from '@mui/material/Menu'
 import { useState } from 'react'
 import { FieldProps, useRecordContext } from 'react-admin'
@@ -49,23 +49,25 @@ function retryJob() {
   alert('retry job')
 }
 
-function viewJob() {
-  alert('open job drawer')
-}
-
 export const JobActions = (props: FieldProps) => {
   const record = useRecordContext()
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
+  const [openDrawer, setOpenDrawer] = useState(false)
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  function viewJob() {
+    handleCloseMenu()
+    setOpenDrawer(true)
+  }
+
+  const handleClickActions = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault()
     event.stopPropagation
     setAnchorEl(event.currentTarget)
     return false
   }
 
-  const handleClose = () => {
+  const handleCloseMenu = () => {
     setAnchorEl(null)
   }
 
@@ -74,13 +76,14 @@ export const JobActions = (props: FieldProps) => {
       <CustomButtonDrawer
         mode="edit"
         drawerProps={{ title: 'Job Details' }}
-        // icon={<VisibilityOutlinedIcon/>}
         // sx={{ display: 'inline-flex' }}
+        openDrawer={openDrawer}
         label={'View'}
         drawerWidth={DrawerWidth.Medium}
+        onDrawerClose={() => setOpenDrawer(false)}
         clickableComponent={
-          <IconButton aria-label="view" id="view-button">
-            <VisibilityOutlinedIcon />
+          <IconButton aria-label="view" id="view-button" sx={{ display: 'none' }}>
+            <VisibilityOutlinedIcon />  
           </IconButton>
         }
       >
@@ -93,7 +96,7 @@ export const JobActions = (props: FieldProps) => {
         aria-controls={open ? 'long-menu' : undefined}
         aria-expanded={open ? 'true' : undefined}
         aria-haspopup="true"
-        onClick={handleClick}
+        onClick={handleClickActions}
       >
         <MoreVertIcon />
       </IconButton>
@@ -104,7 +107,7 @@ export const JobActions = (props: FieldProps) => {
         }}
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClose={handleCloseMenu}
         PaperProps={{
           style: {
             maxHeight: ITEM_HEIGHT * 4.5,
@@ -112,29 +115,16 @@ export const JobActions = (props: FieldProps) => {
           },
         }}
       >
-        {/* <MenuItem key={'view'} onClick={viewJob}>
+        <MenuItem key={'view'} onClick={viewJob}>
           View
-        </MenuItem> */}
-        {/* <CustomButtonDrawer
-          label=" "
-          drawerProps={{ title: 'Edit Jobs' }}
-          // sx={{ display: 'inline-flex' }}
-          mode="edit"
-          // onClickableComponentClick={handleClose}
-          drawerWidth={DrawerWidth.Medium}
-          clickableComponent={<MenuItem
-            onClick={handleClose}
-            >View</MenuItem>}
-        >
-          <EditJob />
-        </CustomButtonDrawer> */}
+        </MenuItem>
         <UpdateMenuItem
-          label={ record.status.includes('scheduled') ? "Run Now" : "Retry"}
+          label={record.status.includes('scheduled') ? 'Run Now' : 'Retry'}
           disabled={record.status.includes('completed')}
-          data={{ status: 'retry!' }} //Change to run now?
-          onClick={handleClose}
+          data={{ status: 'retry!' }}
+          onClick={handleCloseMenu}
         />
-        <DeleteMenuItem title="test" label="Delete" onClick={handleClose} />
+        <DeleteMenuItem title="test" label="Delete" onClick={handleCloseMenu} />
       </Menu>
     </Box>
   )

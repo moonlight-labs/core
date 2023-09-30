@@ -10,7 +10,13 @@ import {
   DrawerProps,
   IconButton,
 } from '@mui/material'
-import { JSXElementConstructor, ReactElement, cloneElement, useState } from 'react'
+import {
+  JSXElementConstructor,
+  ReactElement,
+  cloneElement,
+  useEffect,
+  useState,
+} from 'react'
 import {
   Button,
   ButtonProps,
@@ -39,7 +45,9 @@ export type ButtonDrawerProps = {
   footer?: React.ReactNode
   label?: string
   icon?: React.ReactElement
-  onClickableComponentClick?: () => void
+  openDrawer: boolean
+  onDrawerClose: () => void
+  onClickableComponentClick?: any
   clickableComponent?: ReactElement<
     { onClick: () => void },
     string | JSXElementConstructor<any>
@@ -60,7 +68,7 @@ export type CustomDrawerProps = {
   editProps?: EditProps
   createProps?: CreateProps
   drawerWidth: DrawerWidth
-  onClose: () => void
+  onClose: any
   title?: ButtonDrawerProps['drawerProps']['title']
   onSuccess?: () => void
   footer?: React.ReactNode
@@ -72,6 +80,8 @@ export const CustomButtonDrawer = ({
   drawerProps,
   createProps,
   editProps,
+  openDrawer: drawerOpenByParent,
+  onDrawerClose,
   onClickableComponentClick,
   clickableComponent = (
     <Button
@@ -90,27 +100,31 @@ export const CustomButtonDrawer = ({
 }: ButtonDrawerProps) => {
   const [open, setOpen] = useState(false)
 
-  const closeDrawer = () => setOpen(false)
+  const closeDrawer = () => {
+    setOpen(false)
+    onDrawerClose()
+  }
   const openDrawer = () => {
     setOpen(true)
   }
 
+  useEffect(() => {
+    drawerOpenByParent && openDrawer()
+  }, [drawerOpenByParent])
+
   const clickHandler = () => {
-      // if (typeof onClickableComponentClick === 'function') {
-      //   onClickableComponentClick()
-      // }
-      setTimeout(() => openDrawer())
-      setTimeout(() => clickableComponent?.props?.onClick())
-      // event.stopPropagation()
-      
+    // if (typeof onClickableComponentClick === 'function') {
+    //   onClickableComponentClick()
+    // }
+    // setTimeout(() => openDrawer())
+    // setTimeout(() => clickableComponent?.props?.onClick())
+    // event.stopPropagation()
+    openDrawer()
   }
 
   return (
     <>
-      {cloneElement(
-        { ...clickableComponent },
-        { onClick: clickHandler},
-      )}
+      {cloneElement({ ...clickableComponent }, { onClick: clickHandler })}
       <CustomDrawer
         mode={mode}
         open={open}

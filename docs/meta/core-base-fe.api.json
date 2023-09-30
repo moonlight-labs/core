@@ -687,7 +687,16 @@
             },
             {
               "kind": "Content",
-              "text": "({ mode, icon, drawerProps, createProps, editProps, onClickableComponentClick, clickableComponent, children, drawerWidth, label, footer, }: "
+              "text": "({ mode, icon, drawerProps, createProps, editProps, "
+            },
+            {
+              "kind": "Reference",
+              "text": "openDrawer",
+              "canonicalReference": "@moonlight-labs/core-base-fe!~__type#openDrawer"
+            },
+            {
+              "kind": "Content",
+              "text": ": drawerOpenByParent, onDrawerClose, onClickableComponentClick, clickableComponent, children, drawerWidth, label, footer, }: "
             },
             {
               "kind": "Reference",
@@ -710,7 +719,7 @@
           "name": "CustomButtonDrawer",
           "variableTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 5
+            "endIndex": 7
           }
         },
         {
