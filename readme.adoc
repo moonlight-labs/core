@@ -1,4 +1,4 @@
-= CORE Platform from Moonlight Labs
+= Groovestack CORE Platform
 
 == CONTENTS
 
@@ -9,7 +9,7 @@
 == SETUP for Core-Accounting
 * add the core gems to your Gemfile
 ```
-git 'https://github.com/moonlight-labs/core.git', branch: 'main' do
+github 'talysto/groovestack-core', branch: 'main' do
   gem 'core-base'
   gem 'core-accounting'
 end
@@ -30,7 +30,7 @@ end
 - extend the Core::Accounting::GraphQL::Types::Line
 
 == SETUP for Core-Accounting-FE
-* add core-accounting-fe pkg `yarn add https://gitpkg.now.sh/moonlight-labs/core/core-accounting-fe?main`
+* add core-accounting-fe pkg `yarn add @groovestack/accounting`
 * ensure peer dependencies are installed
 * add Jobs RA Resource (which can be customized as shown below)
 ```
@@ -68,7 +68,7 @@ const AccountScopeReferenceField: React.FC<{source: string}> = ({source}) => {
 == SETUP for Core-Jobs
 * add the core gems to your Gemfile
 ```
-git 'https://github.com/moonlight-labs/core.git', branch: 'main' do
+github 'talysto/groovestack-core', branch: 'main' do
   gem 'core-base'
   gem 'core-jobs'
 end
@@ -101,7 +101,7 @@ plugin :que
 ```
 
 == SETUP for Core-Jobs-FE
-* add core-jobs-fe pkg `yarn add https://gitpkg.now.sh/moonlight-labs/core/core-jobs-fe?main`
+* add core-jobs-fe pkg `yarn add @groovestack/jobs`
 * ensure peer dependencies are installed
 * add Jobs RA Resource
 ```
@@ -118,7 +118,7 @@ plugin :que
 == SETUP for Core-Comments
 * add the core gems to your Gemfile
 ```
-git 'https://github.com/moonlight-labs/core.git', branch: 'main' do
+github 'talysto/groovestack-core', branch: 'main' do
   gem 'core-base'
   gem 'core-comments'
 end
@@ -139,7 +139,7 @@ end
 ```
 
 == SETUP for Core-Comments-FE
-* add core-comments-fe pkg `yarn add https://gitpkg.now.sh/moonlight-labs/core/core-comments-fe?main`
+* add core-comments-fe pkg `yarn add @groovestack/comments`
 * ensure peer dependencies are installed
 * add Comments RA Resource
 ```
@@ -155,10 +155,9 @@ end
 == SETUP for Core-Versions
 * add the core gems to your Gemfile
 ```
-git 'https://github.com/moonlight-labs/core.git', branch: 'main' do
+github 'talysto/groovestack-core', branch: 'main' do
   gem 'core-base'
   gem 'core-versions'
-end
 ```
 * run `bundle`
 * run `rails db:migrate`
@@ -172,7 +171,7 @@ end
 * add `has_core_versions` to any wanted models (this supports options passed in for what to monitor the same as https://github.com/paper-trail-gem/paper_trail#2c-choosing-attributes-to-monitor[PaperTrail])
 
 == SETUP for Core-Versions-FE
-* add core-versions-fe pkg `yarn add https://gitpkg.now.sh/moonlight-labs/core/core-versions-fe?main`
+* add core-versions-fe pkg `yarn add @groovestack/versions`
 * ensure peer dependencies are installed
 * add Versions RA Resource
 ```
@@ -188,7 +187,7 @@ end
 == SETUP for Core-Referrals
 * add the core gems to your Gemfile
 ```
-git 'https://github.com/moonlight-labs/core.git', branch: 'main' do
+github 'talysto/groovestack-core', branch: 'main' do
   gem 'core-base'
   gem 'core-referrals'
 end
