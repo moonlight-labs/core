@@ -3,6 +3,7 @@
   "title": "CORE Base",
   "description": "Support classes and general-purpose components for MUI and React-Admin",
   "version": "0.2.7",
+  "private" : false,
   "type": "module",
   "files": [
     "dist"

@@ -1,6 +1,7 @@
 {
   "name": "@groovestack/config",
   "version": "0.2.7",
+  "private" : false,
   "type": "module",
   "files": [
     "dist"
