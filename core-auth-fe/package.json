@@ -50,5 +50,9 @@
   },
   "devDependencies": {
     "@types/rails__actioncable": "^6.1.8"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

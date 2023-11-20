@@ -32,4 +32,8 @@
   "dependencies": {
     "@moonlight-labs/core-base-fe": "workspace:^"
   }
+},
+"publishConfig": {
+  "access": "public",
+  "registry": "https://registry.npmjs.org/"
 }
