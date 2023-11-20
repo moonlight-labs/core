@@ -30,7 +30,7 @@ end
 - extend the Core::Accounting::GraphQL::Types::Line
 
 == SETUP for Core-Accounting-FE
-* add core-accounting-fe pkg `yarn add @groovestack/accounting`
+* add @groovestack/accounting pkg `yarn add @groovestack/accounting`
 * ensure peer dependencies are installed
 * add Jobs RA Resource (which can be customized as shown below)
 ```
@@ -101,7 +101,7 @@ plugin :que
 ```
 
 == SETUP for Core-Jobs-FE
-* add core-jobs-fe pkg `yarn add @groovestack/jobs`
+* add @groovestack/jobs pkg `yarn add @groovestack/jobs`
 * ensure peer dependencies are installed
 * add Jobs RA Resource
 ```
@@ -139,7 +139,7 @@ end
 ```
 
 == SETUP for Core-Comments-FE
-* add core-comments-fe pkg `yarn add @groovestack/comments`
+* add @groovestack/comments pkg `yarn add @groovestack/comments`
 * ensure peer dependencies are installed
 * add Comments RA Resource
 ```
@@ -171,7 +171,7 @@ end
 * add `has_core_versions` to any wanted models (this supports options passed in for what to monitor the same as https://github.com/paper-trail-gem/paper_trail#2c-choosing-attributes-to-monitor[PaperTrail])
 
 == SETUP for Core-Versions-FE
-* add core-versions-fe pkg `yarn add @groovestack/versions`
+* add @groovestack/versions `yarn add @groovestack/versions`
 * ensure peer dependencies are installed
 * add Versions RA Resource
 ```
